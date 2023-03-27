@@ -45,7 +45,7 @@ public class Secure4JApplication {
             for (int i=0; i<5; i++) {
                 Post post = Post.builder()
                         .title(faker.lorem().sentence(1))
-                        .content(faker.lorem().paragraph(20))
+                        .content(faker.lorem().paragraph(40))
                         .user(userRepository.findById((long)random.nextInt(max2 - min + 1) + min).orElseThrow())
                         .build();
                 postRepository.save(post);
