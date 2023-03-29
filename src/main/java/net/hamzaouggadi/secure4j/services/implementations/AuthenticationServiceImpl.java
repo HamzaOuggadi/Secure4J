@@ -17,7 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
-@Transactional
 public class AuthenticationServiceImpl implements AuthenticationService {
 
     private final UserRepository userRepository;

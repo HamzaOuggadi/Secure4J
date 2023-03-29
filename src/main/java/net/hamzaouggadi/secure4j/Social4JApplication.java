@@ -3,6 +3,7 @@ package net.hamzaouggadi.secure4j;
 import com.github.javafaker.Faker;
 import net.hamzaouggadi.secure4j.entities.Comment;
 import net.hamzaouggadi.secure4j.entities.Post;
+import net.hamzaouggadi.secure4j.entities.Role;
 import net.hamzaouggadi.secure4j.entities.User;
 import net.hamzaouggadi.secure4j.repositories.CommentRepository;
 import net.hamzaouggadi.secure4j.repositories.PostRepository;
@@ -16,10 +17,10 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 @SpringBootApplication
-public class Secure4JApplication {
+public class Social4JApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Secure4JApplication.class, args);
+        SpringApplication.run(Social4JApplication.class, args);
     }
 
     @Bean
@@ -38,6 +39,7 @@ public class Secure4JApplication {
                         .fullName(usr)
                         .email(usr + "@gmail.com")
                         .password("hamza123")
+                        .role(Role.USER)
                         .build();
                 userRepository.save(user);
             });

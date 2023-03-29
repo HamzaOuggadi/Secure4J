@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/secure4j
+    url: jdbc:postgresql://localhost:5432/social4j
     username: hamzaouggadi
     password: hamza123
     driver-class-name: org.postgresql.Driver
@@ -14,6 +14,6 @@ spring:
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   application:
-    name: secure4j
+    name: social4j
 server:
   port: 8081
