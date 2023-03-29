@@ -6,7 +6,7 @@ import net.hamzaouggadi.secure4j.entities.AuthenticationResponse;
 
 public interface AuthenticationService {
 
-    void registerUser(UserDTO userDTO);
+    AuthenticationResponse registerUser(UserDTO userDTO);
     AuthenticationResponse authentication(AuthenticationRequest authenticationRequest);
 
 }
