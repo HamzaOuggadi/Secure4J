@@ -9,6 +9,8 @@ import net.hamzaouggadi.secure4j.entities.Role;
 import net.hamzaouggadi.secure4j.entities.User;
 import net.hamzaouggadi.secure4j.repositories.UserRepository;
 import net.hamzaouggadi.secure4j.services.AuthenticationService;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +23,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
 
     @Override
     public AuthenticationResponse registerUser(UserDTO userDTO) {
@@ -39,6 +42,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public AuthenticationResponse authentication(AuthenticationRequest authenticationRequest) {
-        return null;
+        authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
+                authenticationRequest.getEmail(),
+                authenticationRequest.getPassword()
+        ));
+        User user = userRepository.findByEmail(authenticationRequest.getEmail()).orElseThrow();
+        var jwtToken = jwtService.generateToken(user);
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
     }
 }
