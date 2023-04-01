@@ -5,7 +5,7 @@ import net.hamzaouggadi.secure4j.config.JwtService;
 import net.hamzaouggadi.secure4j.dtos.UserDTO;
 import net.hamzaouggadi.secure4j.entities.AuthenticationRequest;
 import net.hamzaouggadi.secure4j.entities.AuthenticationResponse;
-import net.hamzaouggadi.secure4j.entities.Role;
+import net.hamzaouggadi.secure4j.enums.Role;
 import net.hamzaouggadi.secure4j.entities.User;
 import net.hamzaouggadi.secure4j.repositories.UserRepository;
 import net.hamzaouggadi.secure4j.services.AuthenticationService;
@@ -13,7 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor

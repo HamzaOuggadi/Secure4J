@@ -3,7 +3,7 @@ package net.hamzaouggadi.secure4j;
 import com.github.javafaker.Faker;
 import net.hamzaouggadi.secure4j.entities.Comment;
 import net.hamzaouggadi.secure4j.entities.Post;
-import net.hamzaouggadi.secure4j.entities.Role;
+import net.hamzaouggadi.secure4j.enums.Role;
 import net.hamzaouggadi.secure4j.entities.User;
 import net.hamzaouggadi.secure4j.repositories.CommentRepository;
 import net.hamzaouggadi.secure4j.repositories.PostRepository;
